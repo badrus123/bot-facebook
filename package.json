@@ -1,0 +1,16 @@
+{
+  "name": "bot-facebook",
+  "version": "1.0.0",
+  "description": "bot for facebook streaming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "badrus shoolehk al ar fanny",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^89.0.0",
+    "cucumber": "^7.0.0-rc.0",
+    "selenium-webdriver": "^4.0.0-beta.2"
+  }
+}
