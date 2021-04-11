@@ -10,10 +10,10 @@ fs.createReadStream('facebook.csv')
     results.forEach((row, index) => {
       setTimeout(function () {
         if (index <= results.length) {
-          //   facebook_streamer(row.Email, row.Password)
-          console.log(row)
+          facebook_streamer(row.Email, row.Password)
+          //   console.log(row)
         }
-      }, index * 10000)
+      }, index * 60000)
 
       //   console.log(row.Email)
     })
