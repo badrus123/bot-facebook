@@ -7,10 +7,13 @@ fs.createReadStream('facebook.csv')
   .pipe(csv())
   .on('data', (data) => results.push(data))
   .on('end', () => {
-    results.forEach(async (row) => {
-      await new Promise((resolve) => setTimeout(resolve, 5000))
-
-      facebook_streamer(row.Email, row.Password)
+    results.forEach((row, index) => {
+      setTimeout(function () {
+        if (index <= results.length) {
+          //   facebook_streamer(row.Email, row.Password)
+          console.log(row)
+        }
+      }, index * 10000)
 
       //   console.log(row.Email)
     })
