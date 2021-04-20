@@ -1,17 +1,18 @@
 const csv = require('csv-parser')
 const fs = require('fs')
-const { facebook_streamer } = require('./index')
+const { facebook_streamer } = require('./facebook')
 const results = []
-
-fs.createReadStream('facebook.csv')
-  .pipe(csv())
-  .on('data', (data) => results.push(data))
-  .on('end', () => {
-    results.forEach((row, index) => {
-      setTimeout(function () {
-        if (index <= results.length) {
-          facebook_streamer(row.Email, row.Password)
-        }
-      }, index * 60000)
+module.exports.mulai = async function (url) {
+  fs.createReadStream('facebook.csv')
+    .pipe(csv())
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+      results.forEach((row, index) => {
+        setTimeout(function () {
+          if (index <= results.length) {
+            facebook_streamer(row.Email, row.Password, url)
+          }
+        }, index * 60000)
+      })
     })
-  })
+}
