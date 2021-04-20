@@ -12,7 +12,7 @@ module.exports.mulai = async function (url) {
           if (index <= results.length) {
             facebook_streamer(row.Email, row.Password, url)
           }
-        }, index * 60000)
+        }, index * 30000)
       })
     })
 }
