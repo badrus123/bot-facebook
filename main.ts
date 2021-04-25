@@ -1,16 +1,17 @@
+import viewBotFacebook from "./usage"
+
 const csv = require('csv-parser')
 const fs = require('fs')
-const { facebook_streamer } = require('./facebook')
-const results = []
-module.exports.mulai = async function (url) {
+const results: any[] = []
+module.exports.mulai = async function (url: string) {
   fs.createReadStream('facebook.csv')
     .pipe(csv())
-    .on('data', (data) => results.push(data))
+    .on('data', (data: any) => results.push(data))
     .on('end', () => {
       results.forEach((row, index) => {
         setTimeout(function () {
           if (index <= results.length) {
-            facebook_streamer(row.Email, row.Password, url)
+            viewBotFacebook(row.Email, row.Password, url)
           }
         }, index * 30000)
       })

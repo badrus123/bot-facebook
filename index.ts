@@ -12,12 +12,12 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
-router.post('/get-url', function (req, res, next) {
+router.post('/get-url', function (req: any, res: any, next: any) {
   mulai(req.body.facebook)
   res.render('thanks', { error: true })
 })
 
-router.get('/', function (req, res, next) {
+router.get('/', function (req: any, res: any, next: any) {
   res.render('index', { error: false })
 })
 
