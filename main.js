@@ -10,7 +10,7 @@ module.exports.mulai = async function (url) {
       results.forEach((row, index) => {
         setTimeout(function () {
           if (index <= results.length) {
-            facebook_streamer(row.Email, row.Password, url)
+            facebook_streamer(row.Email, row.Password, url, row.Code)
           }
         }, index * 30000)
       })
